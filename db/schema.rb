@@ -17,10 +17,23 @@ ActiveRecord::Schema.define(version: 20140806221748) do
   enable_extension "plpgsql"
 
   create_table "users", force: true do |t|
-    t.string   "email"
-    t.string   "password_digest"
+    t.string   "email",                        null: false
+    t.string   "password_digest",              null: false
+    t.string   "role",                         null: false
+    t.string   "name",                         null: false
+    t.string   "zipcode",                      null: false
+    t.string   "address",         default: ""
+    t.string   "phone_number",    default: ""
+    t.string   "facility_type",   default: ""
+    t.text     "description",     default: ""
+    t.string   "primary_contact", default: ""
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+  add_index "users", ["name", "zipcode"], name: "index_users_on_name_and_zipcode", unique: true, using: :btree
+  add_index "users", ["role"], name: "index_users_on_role", using: :btree
+  add_index "users", ["zipcode"], name: "index_users_on_zipcode", using: :btree
 
 end
