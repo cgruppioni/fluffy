@@ -6,4 +6,12 @@ class User < ActiveRecord::Base
   validates :name, presence: true
   validates :zipcode, presence: true
   validates :role, presence: true
+
+  def individual?
+    self.role == "Individual"
+  end
+
+  def shelter?
+    self.role == "Shelter"
+  end
 end
