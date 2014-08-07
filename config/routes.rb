@@ -4,7 +4,7 @@ Rails.application.routes.draw do
     resources :animals, only: [:new, :create, :edit, :update, :index]
   end
 
-  resources :animals, only: [:show]
+  resources :animals, only: [:show, :destroy]
   resource :search, only: [:show]
 
   get "/sign_up", to: "users#new"

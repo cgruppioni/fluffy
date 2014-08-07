@@ -17,24 +17,26 @@ ActiveRecord::Schema.define(version: 20140807032311) do
   enable_extension "plpgsql"
 
   create_table "animals", force: true do |t|
-    t.string  "name"
-    t.string  "mammal_type"
-    t.integer "age"
-    t.string  "breed"
-    t.string  "adjective"
-    t.string  "adjective2"
-    t.text    "biography"
-    t.integer "user_id"
+    t.string   "name"
+    t.string   "mammal_type"
+    t.integer  "age"
+    t.string   "breed"
+    t.string   "address"
+    t.string   "personality"
+    t.text     "biography"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   add_index "animals", ["mammal_type"], name: "index_animals_on_mammal_type", using: :btree
   add_index "animals", ["user_id"], name: "index_animals_on_user_id", using: :btree
 
   create_table "users", force: true do |t|
-    t.string   "email",                        null: false
-    t.string   "password_digest",              null: false
-    t.string   "role",                         null: false
-    t.string   "name",                         null: false
+    t.string   "email",                         null: false
+    t.string   "password_digest",               null: false
+    t.string   "role",                          null: false
+    t.string   "name",                          null: false
     t.string   "address",         default: ""
     t.string   "phone_number",    default: ""
     t.string   "facility_type",   default: ""
