@@ -6,3 +6,8 @@
 <%= animal.adjective2 %>
 <%= animal.biography %>
 <%= animal.user_id %>
+
+<% if current_user.shelter? %>
+  <%= button_to "Edit Listing", [:edit, current_user, animal] %>
+  <%= button_to "Delete Listing", animal, method: :delete %>
+<% end %>

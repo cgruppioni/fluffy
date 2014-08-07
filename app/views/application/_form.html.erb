@@ -1,0 +1,34 @@
+<%= form_for [current_user, @animal] do |form| %>
+  <%= render "error_messages", target: @animal %>
+  <div>
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+  <div>
+    <%= form.label :mammal_type, "Type" %>
+    <%= form.collection_select :mammal_type, Animal::MAMMAL_TYPE, :to_s, :to_s, include_blank: false %>
+  </div>
+  <div>
+    <%= form.label :age %>
+    <%= form.number_field :age %>
+  </div>
+  <div>
+    <%= form.label :breed %>
+    <%= form.text_field :breed %>
+  </div>
+  <div>
+    <%= form.label :adjective %>
+    <%= form.text_field :adjective %>
+  </div>
+  <div>
+    <%= form.label :adjective2 %>
+    <%= form.text_field :adjective2 %>
+  </div>
+  <div>
+    <%= form.label :biography %>
+    <%= form.text_area :biography %>
+  </div>
+  <div>
+    <%= form.submit "Create Listing" %>
+  </div>
+<% end %>

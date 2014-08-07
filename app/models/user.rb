@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  ROLES = %w( Individual Shelter )
+  ROLES = %w( Caregiver Shelter )
   FACILITY_TYPE = ["Humane Society", "Municipal Control Facility", "Rescue Organization", "Animal Sanctuary"]
 
   has_many :animals
