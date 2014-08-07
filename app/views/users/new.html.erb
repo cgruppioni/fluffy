@@ -16,10 +16,6 @@
     <%= form.collection_select :role, User::ROLES, :to_s, :to_s, include_blanks: true %>
   </div>
   <div>
-    <%= form.label :zipcode %>
-    <%= form.text_field :zipcode %>
-  </div>
-  <div>
     <%= form.submit "Sign up" %>
   </div>
 <% end %>

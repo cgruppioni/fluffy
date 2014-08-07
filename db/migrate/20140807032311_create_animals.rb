@@ -5,10 +5,11 @@ class CreateAnimals < ActiveRecord::Migration
       t.string :mammal_type
       t.integer :age
       t.string :breed
-      t.string :adjective
-      t.string :adjective2
+      t.string :personality
       t.text :biography
       t.belongs_to :user, index: true
+
+      t.timestamps
     end
     add_index :animals, :mammal_type
   end

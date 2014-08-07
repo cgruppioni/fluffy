@@ -17,12 +17,8 @@
     <%= form.text_field :breed %>
   </div>
   <div>
-    <%= form.label :adjective %>
-    <%= form.text_field :adjective %>
-  </div>
-  <div>
-    <%= form.label :adjective2 %>
-    <%= form.text_field :adjective2 %>
+    <%= form.label :personality %>
+    <%= form.collection_select :personality, Animal::PERSONALITY, :to_s, :to_s, include_blank: false %>
   </div>
   <div>
     <%= form.label :biography %>

@@ -49,8 +49,7 @@ class AnimalsController < ApplicationController
       :mammal_type,
       :age,
       :breed,
-      :adjective,
-      :adjective2,
+      :personality,
       :biography
     )
   end

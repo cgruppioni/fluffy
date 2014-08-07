@@ -23,7 +23,7 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params[:id]) 
     
-    if @user.save
+    if @user.update(user_params)
       redirect_to :dashboard
     else
       render :edit
@@ -37,11 +37,11 @@ class UsersController < ApplicationController
       :email, 
       :password,
       :name, 
-      :zipcode, 
+      :address, 
       :role, 
       :address, 
       :phone_number,
-      :facility_types,
+      :facility_type,
       :description,
       :primary_contact
     )
