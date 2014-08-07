@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
   resource :session, only: [:new, :create, :destroy]
-  resources :users, only: [:new, :create, :edit, :update]
+  resources :users, only: [:new, :create, :edit, :update] do
+    resources :animals, only: [:new, :create]
+  end
+
+  resources :animals, only: [:show]
 
   get "/sign_up", to: "users#new"
   get "/sign_in", to: "sessions#new"

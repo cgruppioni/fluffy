@@ -4,4 +4,5 @@
 
 <% if @user.shelter? %>
   <%= link_to "Update Profile", [:edit, @user] %>
+  <%= link_to "Create Animal listing", [:new, current_user, :animal] %>
 <% end %>
