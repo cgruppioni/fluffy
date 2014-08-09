@@ -11,27 +11,35 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140807032311) do
+ActiveRecord::Schema.define(version: 20140809200254) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "animals", force: true do |t|
-    t.string   "name"
-    t.string   "mammal_type"
-    t.integer  "age"
-    t.string   "breed"
-    t.string   "address"
-    t.string   "personality"
-    t.text     "biography"
-    t.integer  "user_id"
+ActiveRecord::Schema.define(version: 20140809200254) do
+  enable_extension "plpgsql"
+  create_table "adoptions", force: true do |t|
+    t.integer  "user_id",                 null: false
+    t.integer  "animal_id",               null: false
+    t.integer  "score",      default: 50, null: false
+    t.integer  "level",      default: 1,  null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
-
+  
+  create_table "animals", force: true do |t|
+    t.string   "name",        null: false
+    t.string   "mammal_type", null: false
+    t.integer  "age",         null: false
+    t.string   "breed",       null: false
+    t.string   "personality", null: false
+    t.text     "biography",   null: false
+    t.integer  "user_id",     null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
   add_index "animals", ["mammal_type"], name: "index_animals_on_mammal_type", using: :btree
   add_index "animals", ["user_id"], name: "index_animals_on_user_id", using: :btree
-
   create_table "users", force: true do |t|
     t.string   "email",                         null: false
     t.string   "password_digest",               null: false
@@ -47,10 +55,8 @@ ActiveRecord::Schema.define(version: 20140807032311) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
-
   add_index "users", ["address"], name: "index_users_on_address", using: :btree
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["name", "address"], name: "index_users_on_name_and_address", unique: true, using: :btree
   add_index "users", ["role"], name: "index_users_on_role", using: :btree
-
 end

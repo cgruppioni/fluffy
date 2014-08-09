@@ -1,7 +1,11 @@
-<% if @user.caregiver? %>
-  <h3>Hello <%= @user.name.capitalize %></h3>
-<% elsif @user.shelter? %>
-  <%= link_to "Update Profile", [:edit, @user] %>
+<% if current_user.caregiver? %>
+  <h3>Hello <%= current_user.name.capitalize %></h3>
+  <% if current_user.adoption %>
+    <%= link_to "How is #{current_user.adoption.animal_id} doing?", [current_user, @adoption] %>
+  <% end %>
+
+<% elsif current_user.shelter? %>
+  <%= link_to "Update Profile", [:edit, current_user] %>
   <%= link_to "Create animal listing", [:new, current_user, :animal] %>
   <%= link_to "View my animal listings", [current_user, :animals] %>
 <% end %>

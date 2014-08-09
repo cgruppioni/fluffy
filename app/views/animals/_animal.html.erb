@@ -1,12 +1,23 @@
-<%= animal.name %>
-<%= animal.mammal_type %>
-<%= animal.age %>
-<%= animal.breed %>
-<%= animal.personality %>
-<%= animal.biography %>
-<%= animal.user_id %>
+<hr>
+<div>
+  Name: <%= animal.name %><br>
+  Type: <%= animal.mammal_type %><br>
+  Age: <%= animal.age %><br>
+  Breed: <%= animal.breed %><br>
+  Personality: <%= animal.personality %><br>
+  Biography: <%= animal.biography %><br>
+  Shelter Id: <%= animal.user_id %><br>
+</div>
 
-<% if current_user.shelter? %>
-  <%= link_to "Edit Listing", [:edit, current_user, animal] %>
-  <%= button_to "Delete Listing", animal, method: :delete %>
-<% end %>
+<div>
+  <% if current_user.shelter? %>
+    <%= link_to "Edit Listing", [:edit, current_user, animal] %><br>
+    <%= button_to "Delete Listing", animal, method: :delete %>
+  <% end %>
+</div>
+<div>
+  <% if current_user.caregiver? %>
+    <%= link_to "Adopt #{animal.name}", [:new, animal, :adoption] %>
+  <% end %>
+</div>
+<hr>

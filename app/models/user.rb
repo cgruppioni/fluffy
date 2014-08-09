@@ -3,6 +3,7 @@ class User < ActiveRecord::Base
   FACILITY_TYPE = ["Humane Society", "Municipal Control Facility", "Rescue Organization", "Animal Sanctuary"]
 
   has_many :animals, dependent: :destroy
+  has_one :adoption
 
   validates :email, presence: true, uniqueness: true
   validates :password_digest, presence: true

@@ -1,6 +1,6 @@
 class DashboardsController < ApplicationController
   def show
-    @user = current_user
     @animal = Animal.new
+    @adoption = current_user.adoption
   end
 end
