@@ -7,7 +7,8 @@
 <% elsif current_user.shelter? %>
   <%= link_to "Update Profile", [:edit, current_user] %>
   <%= link_to "Create animal listing", [:new, current_user, :animal] %>
-  <%= link_to "View my animal listings", [current_user, :animals] %>
+  <%= link_to "View my animal listings", :animals %>
+  <%= link_to "View adoptions", :adoptions %>
 <% end %>
 
 <div>

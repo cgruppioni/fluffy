@@ -23,12 +23,14 @@ class AdoptionsController < ApplicationController
 
   def destroy
     adoption = Adoption.find(params[:id])
-    
     if adoption.destroy
       redirect_to root_path
     else
       render :show
     end
-
+  
+    def index
+    @animals = Animal.where(user_id: current_user.id).
+      where(adopted: true)
   end
 end
