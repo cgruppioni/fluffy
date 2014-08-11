@@ -3,4 +3,5 @@
   <h4>Level <%= @adoption.level %><br></h4>
   <h4>Points <%= @adoption.score %><br></h4>
 
+  <%= button_to "Abandon Pet", @adoption, method: :delete %>
 </div>
