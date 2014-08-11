@@ -1,7 +1,6 @@
 <div>
-  <%= form_for [@animal, @adoption] do |form| %>
-    Caregiver: <%= current_user.email %><br>
-    Animal: <%= @animal.name %><br>
-    <%= form.submit "Confirm Adoption" %>
-  <% end %>
+  Caregiver: <%= current_user.email %><br>
+  Animal: <%= @animal.name %><br>
+  <%= render "error_messages", target: @adoption %>
+  <%= button_to "Finalize Adoption", [@animal, :adoptions] %>
 </div>
