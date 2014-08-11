@@ -1,21 +1,5 @@
-# encoding: UTF-8
-# This file is auto-generated from the current state of the database. Instead
-# of editing this file, please use the migrations feature of Active Record to
-# incrementally modify your database, and then regenerate this schema definition.
-#
-# Note that this schema.rb definition is the authoritative source for your
-# database schema. If you need to create the application database on another
-# system, you should be using db:schema:load, not running all the migrations
-# from scratch. The latter is a flawed and unsustainable approach (the more migrations
-# you'll amass, the slower it'll run and the greater likelihood for issues).
-#
-# It's strongly recommended that you check this file into your version control system.
-
 ActiveRecord::Schema.define(version: 20140809200254) do
-
-  # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
   create_table "adoptions", force: true do |t|
     t.integer  "user_id",                 null: false
     t.integer  "animal_id",               null: false
@@ -24,10 +8,8 @@ ActiveRecord::Schema.define(version: 20140809200254) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
-
   add_index "adoptions", ["animal_id"], name: "index_adoptions_on_animal_id", unique: true, using: :btree
   add_index "adoptions", ["user_id"], name: "index_adoptions_on_user_id", unique: true, using: :btree
-
   create_table "animals", force: true do |t|
     t.string   "name",                        null: false
     t.string   "mammal_type",                 null: false
@@ -40,11 +22,9 @@ ActiveRecord::Schema.define(version: 20140809200254) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
-
   add_index "animals", ["adopted"], name: "index_animals_on_adopted", using: :btree
   add_index "animals", ["mammal_type"], name: "index_animals_on_mammal_type", using: :btree
   add_index "animals", ["user_id"], name: "index_animals_on_user_id", using: :btree
-
   create_table "users", force: true do |t|
     t.string   "email",                         null: false
     t.string   "password_digest",               null: false
@@ -60,10 +40,8 @@ ActiveRecord::Schema.define(version: 20140809200254) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
-
   add_index "users", ["address"], name: "index_users_on_address", using: :btree
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["name", "address"], name: "index_users_on_name_and_address", unique: true, using: :btree
   add_index "users", ["role"], name: "index_users_on_role", using: :btree
-
 end
