@@ -1,1 +1,5 @@
-<%= render @animals %>
+<% if @animals.empty? %>
+  <h2>No adoptions yet!</h2>
+<% else %>
+  <%= render @animals %>
+<% end %>

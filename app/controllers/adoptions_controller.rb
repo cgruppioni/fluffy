@@ -9,8 +9,8 @@ class AdoptionsController < ApplicationController
     @adoption = Adoption.new(user_id: current_user.id, animal_id: @animal.id)
     
     if @adoption.save
-      @animal.update(adopted: true)
-      redirect_to root_path
+      @animal.update_attributes(adopted: true)
+      redirect_to @animal
     else
       render :new
     end
@@ -29,8 +29,7 @@ class AdoptionsController < ApplicationController
       render :show
     end
   
-    def index
-    @animals = Animal.where(user_id: current_user.id).
-      where(adopted: true)
+  def index
+    @animals = Animal.where("user_id = ? AND adopted = ?", current_user.id, true)
   end
 end
