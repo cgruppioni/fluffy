@@ -25,20 +25,23 @@ ActiveRecord::Schema.define(version: 20140809200254) do
     t.datetime "updated_at"
   end
 
-  add_index "adoptions", ["user_id", "animal_id"], name: "index_adoptions_on_user_id_and_animal_id", unique: true, using: :btree
+  add_index "adoptions", ["animal_id"], name: "index_adoptions_on_animal_id", unique: true, using: :btree
+  add_index "adoptions", ["user_id"], name: "index_adoptions_on_user_id", unique: true, using: :btree
 
   create_table "animals", force: true do |t|
-    t.string   "name",        null: false
-    t.string   "mammal_type", null: false
-    t.integer  "age",         null: false
-    t.string   "breed",       null: false
-    t.string   "personality", null: false
-    t.text     "biography",   null: false
-    t.integer  "user_id",     null: false
+    t.string   "name",                        null: false
+    t.string   "mammal_type",                 null: false
+    t.integer  "age",                         null: false
+    t.string   "breed",                       null: false
+    t.string   "personality",                 null: false
+    t.text     "biography",                   null: false
+    t.integer  "user_id",                     null: false
+    t.boolean  "adopted",     default: false, null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
+  add_index "animals", ["adopted"], name: "index_animals_on_adopted", using: :btree
   add_index "animals", ["mammal_type"], name: "index_animals_on_mammal_type", using: :btree
   add_index "animals", ["user_id"], name: "index_animals_on_user_id", using: :btree
 

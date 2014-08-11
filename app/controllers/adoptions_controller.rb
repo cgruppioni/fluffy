@@ -9,6 +9,7 @@ class AdoptionsController < ApplicationController
     @adoption = Adoption.new(user_id: current_user.id, animal_id: @animal.id)
     
     if @adoption.save
+      @animal.update(adopted: true)
       redirect_to root_path
     else
       render :new

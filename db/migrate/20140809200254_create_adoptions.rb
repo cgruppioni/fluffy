@@ -8,6 +8,7 @@ class CreateAdoptions < ActiveRecord::Migration
 
       t.timestamps
     end
-    add_index :adoptions, [:user_id, :animal_id], unique: true
+    add_index :adoptions, :user_id, unique: true
+    add_index :adoptions, :animal_id, unique: true
   end
 end

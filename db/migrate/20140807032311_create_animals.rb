@@ -8,9 +8,11 @@ class CreateAnimals < ActiveRecord::Migration
       t.string :personality, null: false
       t.text :biography, null: false
       t.belongs_to :user, index: true, null: false
+      t.boolean :adopted, null: false, default: false
 
       t.timestamps
     end
     add_index :animals, :mammal_type
+    add_index :animals, :adopted
   end
 end
