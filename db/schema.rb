@@ -17,10 +17,12 @@ ActiveRecord::Schema.define(version: 20140811235259) do
   enable_extension "plpgsql"
 
   create_table "adoptions", force: true do |t|
-    t.integer  "user_id",                 null: false
-    t.integer  "animal_id",               null: false
-    t.integer  "score",      default: 50, null: false
-    t.integer  "level",      default: 1,  null: false
+    t.integer  "user_id",                                            null: false
+    t.integer  "animal_id",                                          null: false
+    t.integer  "score",                                default: 50,  null: false
+    t.integer  "level",                                default: 1,   null: false
+    t.decimal  "money_owed",   precision: 8, scale: 2, default: 0.0, null: false
+    t.integer  "feed_counter",                         default: 0,   null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end

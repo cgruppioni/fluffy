@@ -20,6 +20,7 @@ class AdoptionsController < ApplicationController
     @adoption = Adoption.find(params[:id])
     if @adoption.user.id == current_user.id
       @animal = Animal.find_by_id(@adoption.animal_id)
+      @feeding = Feeding.new
     else
       redirect_to root_path
     end

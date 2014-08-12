@@ -8,10 +8,11 @@ Rails.application.routes.draw do
     resources :adoptions, only: [:new, :create]
   end
  
-  resources :adoptions, only: [:destroy]
-
   resource :search, only: [:show]
-  resources :adoptions, only: [:index, :show]
+
+  resources :adoptions, only: [:index, :show, :destroy] do
+    resources :feedings, only: [:create]
+  end
 
   get "/sign_up", to: "users#new"
   get "/sign_in", to: "sessions#new"

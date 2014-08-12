@@ -1,7 +1,13 @@
 <div>
-  <h2><%= @animal.name %></h2>
-  <h4>Level <%= @adoption.level %><br></h4>
-  <h4>Points <%= @adoption.score %><br></h4>
+  <h3><%= @animal.name %></h2>
+  <h4>Level: <%= @adoption.level %></h4>
+  <h4>Points: <%= @adoption.score %></h4>
+  <%= image_tag @animal.image.thumb.url.to_s %><br>
+  
+  <%= form_for [@adoption, @feeding] do |form| %>
+    <%= form.submit "Feed #{@animal.name}" %>
+  <% end %>
 
+  <hr>
   <%= button_to "Abandon Pet", @adoption, method: :delete %>
 </div>
