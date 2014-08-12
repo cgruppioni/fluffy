@@ -50,7 +50,8 @@ class AnimalsController < ApplicationController
       :age,
       :breed,
       :personality,
-      :biography
+      :biography,
+      :image
     )
   end
 end

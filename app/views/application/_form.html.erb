@@ -25,6 +25,10 @@
     <%= form.text_area :biography %>
   </div>
   <div>
+    <%= form.label "Upload Profile Picture", :image %>
+    <%= form.file_field :image %>
+  </div>
+  <div>
     <%= form.submit "Create Listing" %>
   </div>
 <% end %>

@@ -18,7 +18,11 @@ class AdoptionsController < ApplicationController
 
   def show
     @adoption = Adoption.find(params[:id])
-    @animal = Animal.find_by_id(@adoption.animal_id)
+    if @adoption.user.id == current_user.id
+      @animal = Animal.find_by_id(@adoption.animal_id)
+    else
+      redirect_to root_path
+    end
   end
 
   def destroy
