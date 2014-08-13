@@ -4,12 +4,8 @@
   <h4>Points: <%= @adoption.score %></h4>
   <%= image_tag @animal.image.thumb.url.to_s %><br>
   
-  <% if @adoption.hungry? %>
-    <%= form_tag [@adoption, :feedings] do %>
-      <%= submit_tag "Feed #{@animal.name}" %>
-    <% end %>
-  <% else %>
-     Don't overfeed!
+  <%= form_tag [@adoption, :feedings] do %>
+    <%= submit_tag "Feed #{@animal.name}" %>
   <% end %>
 
   <hr>

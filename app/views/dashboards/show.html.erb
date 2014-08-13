@@ -4,13 +4,7 @@
   <% if current_user.adoption %>
     <%= link_to "How is #{@animal.name} doing?",  @adoption %>
     <h4>Current Credits: <%= current_user.credits %></h4>
-    
-    <%= form_for current_user do |form| %>
-      <%= form.label :credits %>
-      <%= form.number_field :credits, value: 0 %><br>
-      <%= form.submit "Purchase more credits" %>
-    <% end %>
-  
+    <%= render "stripe_form" %>
   <% else %>
   <div>
     <h4>Enter your address, and browse adoptable pets near you!</h4>
