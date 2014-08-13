@@ -131,7 +131,6 @@ PLATFORMS
 DEPENDENCIES
   carrierwave
   coffee-rails (~> 4.0.0)
-  coffee-script
   geocoder
   jbuilder (~> 2.0)
   jquery-rails

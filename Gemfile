@@ -12,6 +12,5 @@ gem 'spring',        group: :development
 gem 'monban'
 gem 'monban-generators'
 gem 'geocoder'
-gem 'rmagick', :require => 'RMagick'
+gem 'rmagick', require: 'RMagick'
 gem 'carrierwave'
-gem 'coffee-script'
