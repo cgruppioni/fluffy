@@ -1,10 +1,10 @@
 <div>
-  <h3><%= @animal.name %></h2>
+  <h3><%= @animal.name %></h3>
   <h4>Level: <%= @adoption.level %></h4>
   <h4>Points: <%= @adoption.score %></h4>
   <%= image_tag @animal.image.thumb.url.to_s %><br>
   
-  <% if @adoption.feed_counter < 2 %>
+  <% if @adoption.hungry? %>
     <%= form_tag [@adoption, :feedings] do %>
       <%= submit_tag "Feed #{@animal.name}" %>
     <% end %>

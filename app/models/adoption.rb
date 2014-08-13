@@ -1,8 +1,7 @@
 class Adoption < ActiveRecord::Base
-  MAX_FEEDINGS_PER_DAY = 2
+  MAX_FEEDINGS_PER_MEAL = 3
   POINTS_FOR_FEEDING = 25
   COST_PER_FEEDING = 0.4
-  INCREMENT = 1
 
   belongs_to :user
   has_one :animal
@@ -13,13 +12,25 @@ class Adoption < ActiveRecord::Base
   validates :level, presence: true
   validates :feed_counter, presence: true
 
-  def if_hungry
-    if feed_counter < MAX_FEEDINGS_PER_DAY
+  def hungry?
+    feed_counter < MAX_FEEDINGS_PER_MEAL
+  end
+
+  def feed
+    if hungry?
       update_attributes(
-        score: (score + POINTS_FOR_FEEDING),
-        money_owed: (money_owed + COST_PER_FEEDING),
-        feed_counter: (feed_counter + INCREMENT)
+        score: score + POINTS_FOR_FEEDING,
+        money_owed: money_owed + COST_PER_FEEDING,
+        feed_counter: feed_counter.next
       )
+    else
+      reset_feed_counter
+    end
+  end
+
+  def reset_feed_counter
+    if updated_at > 6.hours.ago
+      feed_counter = 0
     end
   end
 end

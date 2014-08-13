@@ -22,8 +22,11 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id]) 
-    
+
     if @user.update(user_params)
+      @user.update_attributes(
+        credits: @user.credits + credit_params[:credits].to_i
+      )
       redirect_to :dashboard
     else
       render :edit
@@ -43,7 +46,13 @@ class UsersController < ApplicationController
       :phone_number,
       :facility_type,
       :description,
-      :primary_contact
+      :primary_contact,
+    )
+  end
+
+  def credit_params
+    params.require(:user).permit(
+      :credits
     )
   end
 end
