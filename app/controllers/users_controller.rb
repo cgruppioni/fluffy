@@ -27,9 +27,11 @@ class UsersController < ApplicationController
       @user.update_attributes(
         credits: @user.credits + credit_params[:credits].to_i
       )
-      redirect_to :dashboard
-    else
-      render :edit
+      if @user.save_sale
+        redirect_to :dashboard
+      else
+        render :edit
+      end
     end
   end
 
@@ -47,6 +49,7 @@ class UsersController < ApplicationController
       :facility_type,
       :description,
       :primary_contact,
+      :stripe_card_token
     )
   end
 
@@ -56,4 +59,3 @@ class UsersController < ApplicationController
     )
   end
 end
-
