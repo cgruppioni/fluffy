@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140814195921) do
+ActiveRecord::Schema.define(version: 20140815180232) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -49,22 +49,31 @@ ActiveRecord::Schema.define(version: 20140814195921) do
   add_index "animals", ["mammal_type"], name: "index_animals_on_mammal_type", using: :btree
   add_index "animals", ["user_id"], name: "index_animals_on_user_id", using: :btree
 
-  create_table "users", force: true do |t|
-    t.string   "email",                               null: false
-    t.string   "password_digest",                     null: false
-    t.string   "role",                                null: false
-    t.string   "name",                                null: false
-    t.string   "address",               default: ""
-    t.string   "phone_number",          default: ""
-    t.string   "facility_type",         default: ""
-    t.text     "description",           default: ""
-    t.string   "primary_contact",       default: ""
-    t.float    "latitude",              default: 0.0
-    t.float    "longitude",             default: 0.0
+  create_table "payments", force: true do |t|
+    t.string   "stripe_customer_token", default: "", null: false
+    t.integer  "credits",               default: 0,  null: false
+    t.integer  "user_id",                            null: false
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "credits",               default: 0,   null: false
-    t.string   "stripe_customer_token", default: "",  null: false
+  end
+
+  add_index "payments", ["user_id"], name: "index_payments_on_user_id", using: :btree
+
+  create_table "users", force: true do |t|
+    t.string   "email",                         null: false
+    t.string   "password_digest",               null: false
+    t.string   "role",                          null: false
+    t.string   "name",                          null: false
+    t.string   "address",         default: ""
+    t.string   "phone_number",    default: ""
+    t.string   "facility_type",   default: ""
+    t.text     "description",     default: ""
+    t.string   "primary_contact", default: ""
+    t.float    "latitude",        default: 0.0
+    t.float    "longitude",       default: 0.0
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "credits",         default: 0,   null: false
   end
 
   add_index "users", ["address"], name: "index_users_on_address", using: :btree

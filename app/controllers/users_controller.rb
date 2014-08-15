@@ -22,12 +22,11 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id]) 
+
     if @user.update(user_params)
-      if @user.save_sale
-        redirect_to :dashboard
-      else
-        render :edit
-      end
+      redirect_to :dashboard
+    else
+      render :edit
     end
   end
 
@@ -45,13 +44,6 @@ class UsersController < ApplicationController
       :facility_type,
       :description,
       :primary_contact,
-      :stripe_card_token
-    ).merge(credits: @user.credits + credit_params[:credits].to_i)
-  end
-
-  def credit_params
-    params.require(:user).permit(
-      :credits
     )
   end
 end

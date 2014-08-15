@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   end
  
   resource :search, only: [:show]
+  resources :payments, only: [:create]
 
   resources :adoptions, only: [:index, :show, :destroy] do
     resources :feedings, only: [:create]
