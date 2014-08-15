@@ -19,7 +19,7 @@ payment =
 
   handleStripeResponse: (status, response) ->
     if status == 200
-      $('#payment_stripe_card_token').val(response.id)
+      $('#stripe_card_token').val(response.id)
       $('#new_payment')[0].submit()
     else
       $('#stripe_error').text(response.error.message)

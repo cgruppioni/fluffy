@@ -37,18 +37,24 @@ class User < ActiveRecord::Base
   private
 
   def create_stripe_customer
+    Rails.logger.info '*'*80
+    Rails.logger.info stripe_card_token
+    Rails.logger.info '*'*80
     customer = Stripe::Customer.create(
-      description: buyer_id, 
+      description: adoption,
       card: stripe_card_token
     )
+    Rails.logger.info '*'*80
+    Rails.logger.info customer
+    Rails.logger.info '*'*80
     self.stripe_customer_token = customer.id
     save!
   end
 
   def create_stripe_charge
-    charge = Stripe::Charge.create(
-      :customer    => self.stripe_customer_token,
-      :amount      => (amount * 100).to_i,
+    Stripe::Charge.create(
+      :customer    => stripe_customer_token,
+      :amount      => (credits * 100).to_i,
       :description => 'Rails Stripe customer',
       :currency    => 'usd'
     )

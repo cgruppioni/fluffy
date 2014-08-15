@@ -64,7 +64,7 @@ ActiveRecord::Schema.define(version: 20140814195921) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "credits",               default: 0,   null: false
-    t.string   "stripe_customer_token"
+    t.string   "stripe_customer_token", default: "",  null: false
   end
 
   add_index "users", ["address"], name: "index_users_on_address", using: :btree

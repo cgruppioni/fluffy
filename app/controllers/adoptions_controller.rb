@@ -24,7 +24,7 @@ class AdoptionsController < ApplicationController
   def destroy
     adoption = Adoption.find(params[:id])
     if adoption.destroy
-      Animal.find_by_id(adoption.animal_id).update_attributes(adopted: false)
+      Animal.find(adoption.animal_id).update_attributes(adopted: false)
       redirect_to root_path
     else
       render :show
