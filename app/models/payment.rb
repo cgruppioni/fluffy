@@ -28,8 +28,8 @@ class Payment < ActiveRecord::Base
     Stripe::Charge.create(
       customer: stripe_customer_token,
       amount: (credits * 100).to_i,
-      description: 'Rails Stripe customer',
-      currency: 'usd'
+      description: "Rails Stripe customer",
+      currency: "usd"
     )
   end
 end

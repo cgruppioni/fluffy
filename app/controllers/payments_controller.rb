@@ -6,10 +6,10 @@ class PaymentsController < ApplicationController
       current_user.update_attributes(
         credits: current_user.credits + @payment.credits
       )
-      redirect_to root_path
-    else
       @adoption = current_user.adoption
       redirect_to @adoption
+    else
+      redirect_to root_path
     end
   end
 

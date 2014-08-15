@@ -14,5 +14,5 @@ gem 'monban-generators'
 gem 'geocoder'
 gem 'rmagick', require: 'RMagick'
 gem 'carrierwave'
-gem 'rmagick', :require => 'RMagick'
 gem 'stripe'
+gem 'dotenv-rails', :groups => [:development, :test]
