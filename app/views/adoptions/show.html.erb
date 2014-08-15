@@ -2,7 +2,7 @@
   <h3><%= @animal.name %></h3>
   <h4>Level: <%= @adoption.level %></h4>
   <h4>Points: <%= @adoption.score %></h4>
-  <%= image_tag @animal.image.thumb.url.to_s %><br>
+  <%= image_tag @animal.image.profile.url %><br>
   
   <%= form_tag [@adoption, :feedings] do %>
     <%= submit_tag "Feed #{@animal.name}" %>

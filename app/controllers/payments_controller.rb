@@ -17,8 +17,9 @@ class PaymentsController < ApplicationController
 
   def payment_params
     params.require(:payment).permit(
-      :stripe_card_token,
-      :credits
+      :stripe_customer_token,
+      :credits,
+      :stripe_card_token
     ).merge(user_id: current_user.id)
   end
 end
