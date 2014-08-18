@@ -14,7 +14,6 @@ class Adoption < ActiveRecord::Base
   validates :feed_counter, presence: true
 
   def feed
-    check_feed_counter
     if hungry?
       update_attributes(
         score: score + POINTS_FOR_FEEDING,
@@ -35,11 +34,5 @@ class Adoption < ActiveRecord::Base
 
   def hungry?
     feed_counter < MAX_FEEDINGS_PER_MEAL
-  end
-
-  def check_feed_counter
-    if last_time_fed > MEAL_TIME.hours.ago
-      self.feed_counter = 0
-    end
   end
 end
