@@ -14,25 +14,29 @@
     <div>
       <nav class="top-bar" data-topbar>
       <section class="top-bar-section">
-      <!-- Right Nav Section -->
-      <ul class="right">
-        <li class="active"><%= link_to "Purchase Credits", [:new, :payment] %></a></li>
-      </ul>
+        <ul class="right">
+          <li class="has-dropdown">
+            <a href="#">Options</a>
+              <ul class="dropdown">
+                <li><%= link_to "Abandon Pet", @adoption, method: :delete %></li>
+             </ul>
+          </li>
+          <li class="active"><%= link_to "Purchase Credits", [:new, :payment] %></a></li>
+        </ul>
 
-      <ul class="left">
-        <li><%= link_to "Fluffy", root_path %></li>
-        <% if signed_in? %>
-          <li><%= link_to "Sign out", session_path, method: :delete %></li>
-        <% else %>
-          <li><%= link_to "Sign in", new_session_path %></li>
-          <li><%= link_to "Sign up", new_user_path %></li>
-        <% end %>
-      </ul>
-    </div>
+        <ul class="left">
+          <li><%= link_to "Fluffy", root_path %></li>
+          <% if signed_in? %>
+            <li><%= link_to "Sign out", session_path, method: :delete %></li>
+          <% else %>
+            <li><%= link_to "Sign in", new_session_path %></li>
+            <li><%= link_to "Sign up", new_user_path %></li>
+          <% end %>
+        </ul>
+      </div>
 
-
-    <div class="outer-container">
-      <%= yield %>
+      <div class="outer-container">
+       <%= yield %>
       <%= javascript_include_tag "application" %>
     </div>
   </body>

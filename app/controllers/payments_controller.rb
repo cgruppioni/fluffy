@@ -2,18 +2,16 @@ class PaymentsController < ApplicationController
   def new
     @payment = Payment.new
   end
-  
+
   def create
     @payment = Payment.new(payment_params)
-
     if @payment.save_sale
       current_user.update_attributes(
         credits: current_user.credits + @payment.credits
       )
-      @adoption = current_user.adoption
-      redirect_to @adoption
+      redirect_to :dashboard
     else
-      redirect_to root_path
+      render :new
     end
   end
 
