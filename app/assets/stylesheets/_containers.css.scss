@@ -7,5 +7,23 @@
   text-align: center;
 }
 .image-container{
+  margin-top: 100px;
   text-align: center;
+}
+.name-container{
+  text-align: center;
+}
+.button-container{
+  margin-top: 100px;
+  text-align: center;
+}
+.adoption-headshot{
+  border: #2e1a12 solid 100px;
+  -webkit-border-image: url(wood.png) 200 stretch;
+  -moz-border-image: url(wood.png) 200 stretch;
+  border-image: url(wood.png) 200 stretch;
+  background: #3D1F00;
+}
+body{
+  background: lightcyan !important;
 }

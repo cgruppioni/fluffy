@@ -1,12 +1,16 @@
 <div class="adoption-container">
   <div class="row">
     <div class="small-6 large-2 columns">
-      <h3><%= @animal.name %></h3>
-      <h4><%= "Credits #{current_user.credits}" %></h4>
+      <div class="name-container">
+        <h3><%= @animal.name %></h3>
+        <h4><%= "Credits #{current_user.credits}" %></h4>
+      </div>
     </div>
     <div class="small-6 large-8 columns">
       <div class="image-container">
-        <%= image_tag @animal.image.profile.url %>
+        <div class="adoption-headshot">
+          <%= image_tag @animal.image.profile.url %>
+        </div>
       </div>
     </div>
     <div class="small-12 large-2 columns">
@@ -19,16 +23,22 @@
 </div>
 
 <div class="row">
-  <div class="adoption-container">
-    <div class="small-3 small-centered columns">
+  <div class="button-container">
+    <div class="medium-3 columns">
       <%= form_tag [@adoption, :feedings] do %>
         <%= submit_tag "Feed", class: "button" %>
     <% end %>
     </div>
-    <div class="small-3 small-centered columns">
+    <div class="medium-3 columns">
       <%= form_tag [@adoption, :plays] do %>
         <%= submit_tag "Play", class: "button" %>
     <% end %>
+    </div>
+    <div class="medium-3 columns">
+      <%= submit_tag "Train", class: "button"  %>
+    </div>
+    <div class="medium-3 columns">
+      <%= submit_tag "Sleep", class: "button"  %>
     </div>
   </div>
 </div>
