@@ -26,13 +26,13 @@ class Adoption < ActiveRecord::Base
     end
   end
 
-  def reset_feed_counter
-    if updated_at > 6.hours.ago
-      feed_counter = 0
-    end
-  end
-
   def hungry?
     feed_counter < MAX_FEEDINGS_PER_MEAL
+  end
+
+  def reset_feed_counter
+    if last_time_fed > 6.hours.ago
+      feed_counter = 0
+    end
   end
 end
