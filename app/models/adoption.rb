@@ -14,12 +14,15 @@ class Adoption < ActiveRecord::Base
   validates :feed_counter, presence: true
 
   def feed
-    if hungry?
+    if hungry? && has_credits?
       update_attributes(
         score: score + POINTS_FOR_FEEDING,
         money_owed: money_owed + COST_PER_FEEDING,
         feed_counter: feed_counter.next,
         last_time_fed: Time.now
+      )
+      user.update_attributes(
+        credits: user.credits - 2
       )
     else
       reset_feed_counter
@@ -30,8 +33,12 @@ class Adoption < ActiveRecord::Base
     feed_counter < MAX_FEEDINGS_PER_MEAL
   end
 
+  def has_credits?
+    user.credits >= 2
+  end
+
   def reset_feed_counter
-    if last_time_fed > 6.hours.ago
+    if last_time_fed > MEAL_TIME.hours.ago
       feed_counter = 0
     end
   end
