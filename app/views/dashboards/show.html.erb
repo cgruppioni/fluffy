@@ -6,7 +6,6 @@
     <%= link_to "View my animal listings", :animals %>
     <%= link_to "View adoptions", :adoptions %>
 <% else %>
-  <div>
   <h2>Hello <%= current_user.name.capitalize %>.</h2>
   <h4>Enter your address, and browse adoptable pets near you!</h4>
   
@@ -14,6 +13,4 @@
     <%= text_field_tag :query %>
     <%= submit_tag "Search" %>
   <% end %>
-
-  </div>
 <% end %>

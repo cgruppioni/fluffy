@@ -1,2 +1,2 @@
-Stripe.api_key = ENV.fetch("S3_BUCKET")
-STRIPE_PUBLIC_KEY = ENV.fetch("SECRET_KEY")
+Stripe.api_key = ENV.fetch("STRIPE_SECRET_KEY")
+STRIPE_PUBLIC_KEY = ENV.fetch("STRIPE_PUBLISHABLE_KEY")
