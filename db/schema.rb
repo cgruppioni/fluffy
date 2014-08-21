@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140821175325) do
+ActiveRecord::Schema.define(version: 20140821193917) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,6 +31,8 @@ ActiveRecord::Schema.define(version: 20140821175325) do
     t.integer  "train_counter",          default: 0,                     null: false
     t.datetime "last_time_slept",        default: '2014-08-21 17:55:27'
     t.integer  "sleep_counter",          default: 0,                     null: false
+    t.boolean  "only_once",              default: false,                 null: false
+    t.integer  "next_level",             default: 500,                   null: false
   end
 
   add_index "adoptions", ["animal_id"], name: "index_adoptions_on_animal_id", unique: true, using: :btree

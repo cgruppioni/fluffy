@@ -1,6 +1,4 @@
 class Adoption < ActiveRecord::Base
-  LEVEL_INCREMENT = 500
-  
   belongs_to :user
   has_one :animal
 
@@ -10,12 +8,10 @@ class Adoption < ActiveRecord::Base
   validates :level, presence: true
   validates :feed_counter, presence: true
 
-  attr_reader :only_once
-
   def level_up
     if time_to_level_up? && only_once
     update_attributes(
-       level: level.next
+       level: level.next,
        only_once: true
        )
     else
@@ -24,11 +20,10 @@ class Adoption < ActiveRecord::Base
   end
 
   def time_to_level_up?
-    score % LEVEL_INCREMENT == 0
+    score > next_level
   end
 
   def reset_only_once
     update_attributes( only_once: false )
   end
-
 end
