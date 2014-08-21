@@ -1,7 +1,7 @@
 class Trainer
   POINTS = 15
   MAX_TRAINS_PER_PERIOD = 2
-  TRAIN_TIME = 4
+  TRAIN_TIME = 8
 
   def initialize(adoption, user)
     @adoption = adoption

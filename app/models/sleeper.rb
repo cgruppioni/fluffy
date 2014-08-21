@@ -1,5 +1,5 @@
 class Sleeper
-  POINTS = 4
+  POINTS = 20
   MAX_SLEEPS_PER_PERIOD = 1
   SLEEP_TIME = 10
 

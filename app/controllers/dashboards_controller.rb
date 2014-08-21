@@ -4,6 +4,7 @@ class DashboardsController < ApplicationController
     @payment = Payment.new
     if current_user.adoption
       @animal = Animal.find(@adoption.animal_id)
+      @adoption.level_up
     end
   end
 end
