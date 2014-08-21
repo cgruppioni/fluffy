@@ -40,7 +40,9 @@
     <% end %>
     </div>
     <div class="medium-3 columns">
-      <%= submit_tag "Sleep", class: "button"  %>
+      <%= form_tag [@adoption, :sleeps] do %>
+        <%= submit_tag "Sleep", class: "button"  %>
+      <% end %>
     </div>
   </div>
 </div>

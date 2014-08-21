@@ -15,6 +15,7 @@ Rails.application.routes.draw do
     resources :feedings, only: [:create]
     resources :plays, only: [:create]
     resources :trainings, only: [:create]
+    resources :sleeps, only: [:create]
   end
 
   get "/sign_up", to: "users#new"

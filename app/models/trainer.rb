@@ -9,7 +9,6 @@ class Trainer
     train
   end
 
-
   def train
     if wants_to_train?
       @adoption.update_attributes(
