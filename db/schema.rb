@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140821193917) do
+ActiveRecord::Schema.define(version: 20140822183315) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,15 +24,15 @@ ActiveRecord::Schema.define(version: 20140821193917) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "feed_counter",           default: 0,                     null: false
-    t.datetime "last_time_fed",          default: '2014-08-21 15:48:59'
-    t.datetime "last_time_played_with",  default: '2014-08-21 15:58:14'
+    t.datetime "last_time_fed",          default: '2014-08-22 18:29:46'
+    t.datetime "last_time_played_with",  default: '2014-08-22 18:29:46'
     t.integer  "play_counter",           default: 0,                     null: false
-    t.datetime "last_time_trained_with", default: '2014-08-21 17:11:37'
+    t.datetime "last_time_trained_with", default: '2014-08-22 18:29:46'
     t.integer  "train_counter",          default: 0,                     null: false
-    t.datetime "last_time_slept",        default: '2014-08-21 17:55:27'
+    t.datetime "last_time_slept",        default: '2014-08-22 18:29:46'
     t.integer  "sleep_counter",          default: 0,                     null: false
-    t.boolean  "only_once",              default: false,                 null: false
     t.integer  "next_level",             default: 500,                   null: false
+    t.boolean  "only_once",              default: true,                  null: false
   end
 
   add_index "adoptions", ["animal_id"], name: "index_adoptions_on_animal_id", unique: true, using: :btree

@@ -1,5 +1,5 @@
 class AddOnlyOnceToAdoptions < ActiveRecord::Migration
   def change
-    add_column :adoptions, :only_once, :boolean, null: false, default: false
+   add_column :adoptions, :only_once, :boolean, default: true, null: false
   end
 end
