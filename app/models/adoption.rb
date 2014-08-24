@@ -11,9 +11,6 @@ class Adoption < ActiveRecord::Base
   validates :feed_counter, presence: true
 
   def level_up
-    Rails.logger.info '*'*80
-    Rails.logger.info "hitting level_up in model"
-    Rails.logger.info '*'*80
     if time_to_level_up? && only_once?
       Rails.logger.info '*'*80
       Rails.logger.info "Updating attributes"
@@ -36,9 +33,6 @@ class Adoption < ActiveRecord::Base
   end
 
   def reset_only_once
-    Rails.logger.info '*'*80
-    Rails.logger.info "hitting reset_only_once"
-    Rails.logger.info '*'*80
     update_attributes( only_once: false )
   end
 end

@@ -26,8 +26,12 @@ class Play
   end
 
   def reset_play_counter
-    if @adoption.last_time_played_with > PLAY_TIME.hours.ago
+    if @adoption.last_time_played_with.to_i < PLAY_TIME.hours.ago.to_i
       play_counter = 0
     end
+    Rails.logger.info '*'*80
+    Rails.logger.info @adoption.last_time_played_with.to_i.inspect
+    Rails.logger.info PLAY_TIME.hours.ago.to_i.inspect
+    Rails.logger.info '*'*80
   end
 end
