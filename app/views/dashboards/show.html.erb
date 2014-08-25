@@ -1,16 +1,27 @@
 <% if current_user.adoption %>
-    <%= render @adoption %>
+  <%= render @adoption %>
 <% elsif current_user.shelter? %>
-    <%= link_to "Update Profile", [:edit, current_user] %>
-    <%= link_to "Create animal listing", [:new, current_user, :animal] %>
-    <%= link_to "View my animal listings", :animals %>
-    <%= link_to "View adoptions", :adoptions %>
+
+  <div class="shelter-container">
+    <div class="medium-2 columns">
+      <%= link_to "Update Profile", [:edit, current_user] %>
+    </div>
+    <div class="medium-2 columns">
+      <%= link_to "Create animal listing", [:new, current_user, :animal] %>
+    </div>
+    <div class="medium-2 columns">
+      <%= link_to "View my animal listings", :animals %>
+    </div>
+    <div class="medium-2 columns">
+      <%= link_to "View adoptions", :adoptions %>
+    </div>
+  </div>
 <% else %>
   <h2>Hello <%= current_user.name.capitalize %>.</h2>
-  <h4>Enter your address, and browse adoptable pets near you!</h4>
-  
-  <%= form_tag search_path, method: :get do %>
-    <%= text_field_tag :query %>
-    <%= submit_tag "Search" %>
+<h4>Enter your address, and browse adoptable pets near you!</h4>
+
+<%= form_tag search_path, method: :get do %>
+  <%= text_field_tag :query %>
+<%= submit_tag "Search" %>
   <% end %>
 <% end %>

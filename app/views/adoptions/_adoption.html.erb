@@ -9,7 +9,9 @@
     <div class="small-6 large-8 columns">
       <div class="image-container">
         <div class="adoption-headshot">
-          <%= image_tag @animal.image.profile.url %>
+          <div class="interaction-gif">
+            <%= image_tag @animal.image.profile.url %>
+          </div>
         </div>
       </div>
     </div>
@@ -42,7 +44,7 @@
     <div class="medium-3 columns">
       <%= form_tag [@adoption, :sleeps] do %>
         <%= submit_tag "Sleep", class: "button"  %>
-      <% end %>
+    <% end %>
     </div>
   </div>
 </div>
