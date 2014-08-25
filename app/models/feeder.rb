@@ -12,6 +12,7 @@ class Feeder
   end
 
   def feed
+    reset_feed_counter
     if hungry? && has_credits?
       @adoption.update_attributes(
         score: @adoption.score + POINTS,
@@ -21,8 +22,6 @@ class Feeder
       @user.update_attributes(
         credits: @user.credits - FOOD_CREDITS
       )
-    else
-      reset_feed_counter
     end
   end
 
