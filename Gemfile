@@ -17,3 +17,6 @@ gem 'carrierwave'
 gem 'stripe'
 gem 'dotenv-rails', :groups => [:development, :test]
 gem 'foundation-rails'
+group :development do
+  gem "bullet"
+end

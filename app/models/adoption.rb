@@ -12,27 +12,21 @@ class Adoption < ActiveRecord::Base
 
   def level_up
     if time_to_level_up? && only_once?
-      Rails.logger.info '*'*80
-      Rails.logger.info "Updating attributes"
-      Rails.logger.info '*'*80
       update_attributes(
         level: level.next,
-        only_once: true,
+        only_once: false,
         next_level: next_level + LEVEL_UP
       )
-    else
+    elsif time_to_level_up?
       reset_only_once
     end
   end
 
   def time_to_level_up?
-    Rails.logger.info '*'*80
-    Rails.logger.info "Hitting time_to_level_up?"
-    Rails.logger.info '*'*80
     score >= next_level
   end
 
   def reset_only_once
-    update_attributes( only_once: false )
+    update_attributes( only_once: true )
   end
 end
