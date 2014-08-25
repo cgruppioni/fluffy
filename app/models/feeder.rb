@@ -35,8 +35,10 @@ class Feeder
   end
 
   def reset_feed_counter
-    if @adoption.last_time_fed > MEAL_TIME.hours.ago
-      feed_counter = 0
+    if @adoption.last_time_fed < MEAL_TIME.hours.ago
+      @adoption.update_attributes(
+        feed_counter: 0
+      )
     end
   end
 end
