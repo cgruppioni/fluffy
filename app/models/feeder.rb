@@ -2,7 +2,7 @@ class Feeder
   MAX_FEEDINGS_PER_MEAL = 3
   POINTS = 15
   MEAL_TIME = 6
-  FOOD_CREDITS = 2
+  CREDITS = 2
   MINIMUM_CREDITS = 2
 
   def initialize(adoption, user)
@@ -20,7 +20,11 @@ class Feeder
         last_time_fed: Time.now
       )
       @user.update_attributes(
-        credits: @user.credits - FOOD_CREDITS
+        credits: @user.credits - CREDITS
+      )
+    else
+      @adoption.update_attributes(
+        positive_interaction_status: false
       )
     end
   end
@@ -36,6 +40,7 @@ class Feeder
   def reset_feed_counter
     if @adoption.last_time_fed < MEAL_TIME.hours.ago
       @adoption.update_attributes(
+        positive_interaction_status: true,
         feed_counter: 0
       )
     end

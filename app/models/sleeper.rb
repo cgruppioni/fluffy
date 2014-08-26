@@ -1,6 +1,7 @@
 class Sleeper
+  CREDITS = 2
   POINTS = 20
-  MAX_SLEEPS_PER_PERIOD = 1
+  MAX_SLEEPS_PER_PERIOD = 0
   SLEEP_TIME = 10
 
   def initialize(adoption, user)
@@ -17,6 +18,10 @@ class Sleeper
         sleep_counter: @adoption.sleep_counter.next,
         last_time_slept: Time.now
       )
+    else
+      @adoption.update_attributes(
+        positive_interaction_status: false
+      ) 
     end
   end
 
@@ -27,6 +32,7 @@ class Sleeper
   def reset_sleep_counter
     if @adoption.last_time_slept < SLEEP_TIME.hours.ago
       @adoption.update_attributes(
+        positive_interaction_status: true,
         sleep_counter: 0
       )
     end

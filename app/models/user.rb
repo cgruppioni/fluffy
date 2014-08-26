@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+  MIN_CREDITS = 2
   ROLES = %w( Caregiver Shelter )
   FACILITY_TYPE = ["Humane Society", "Municipal Control Facility", "Rescue Organization", "Animal Sanctuary"]
 
@@ -20,5 +21,9 @@ class User < ActiveRecord::Base
 
   def caregiver?
     role == "Caregiver"
+  end
+
+  def has_credits?
+    credits >= MIN_CREDITS
   end
 end

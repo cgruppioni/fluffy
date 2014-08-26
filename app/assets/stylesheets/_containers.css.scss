@@ -2,23 +2,25 @@
   margin-left: 20px;
   margin-right: 20px;
 }
-.adoption-container{
-  margin-top: 75px;
-  text-align: center;
-  margin-bottom: 60px;
-}
-.image-container{
-  text-align: center;
-}
 .name-container{
   text-align: center;
 }
 .button-container{
   margin-top: 50px;
-  text-align: center;
-  margin-left: 40px;
 }
-.adoption-headshot{
+.gif-container{
+  margin-top: 150px;
+  text-align: center;
+}
+#animal{
+  border-style: solid;
+  border-width: 5px;
+}
+.animal-profile-container{
+  margin-top: 100px;
+  margin-left: -100px;
+}
+.wooden-frame-container{
   border: #2e1a12 solid 100px;
   -webkit-border-image: url(wood.png) 200 stretch;
   -moz-border-image: url(wood.png) 200 stretch;

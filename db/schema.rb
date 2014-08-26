@@ -11,28 +11,29 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140826194151) do
+ActiveRecord::Schema.define(version: 20140827045716) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "adoptions", force: true do |t|
-    t.integer  "user_id",                                                null: false
-    t.integer  "animal_id",                                              null: false
-    t.integer  "score",                  default: 50,                    null: false
-    t.integer  "level",                  default: 1,                     null: false
+    t.integer  "user_id",                                                     null: false
+    t.integer  "animal_id",                                                   null: false
+    t.integer  "score",                       default: 50,                    null: false
+    t.integer  "level",                       default: 1,                     null: false
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "feed_counter",           default: 0,                     null: false
-    t.datetime "last_time_fed",          default: '2014-08-26 19:26:47'
-    t.datetime "last_time_played_with",  default: '2014-08-26 19:28:11'
-    t.integer  "play_counter",           default: 0,                     null: false
-    t.datetime "last_time_trained_with", default: '2014-08-26 19:30:09'
-    t.integer  "train_counter",          default: 0,                     null: false
-    t.datetime "last_time_slept",        default: '2014-08-26 19:32:20'
-    t.integer  "sleep_counter",          default: 0,                     null: false
-    t.integer  "next_level",             default: 500,                   null: false
-    t.boolean  "only_once",              default: true,                  null: false
+    t.integer  "feed_counter",                default: 0,                     null: false
+    t.datetime "last_time_fed",               default: '2014-08-26 19:26:47'
+    t.datetime "last_time_played_with",       default: '2014-08-26 19:28:11'
+    t.integer  "play_counter",                default: 0,                     null: false
+    t.datetime "last_time_trained_with",      default: '2014-08-26 19:30:09'
+    t.integer  "train_counter",               default: 0,                     null: false
+    t.datetime "last_time_slept",             default: '2014-08-26 19:32:20'
+    t.integer  "sleep_counter",               default: 0,                     null: false
+    t.integer  "next_level",                  default: 500,                   null: false
+    t.boolean  "only_once",                   default: true,                  null: false
+    t.boolean  "positive_interaction_status", default: true,                  null: false
   end
 
   add_index "adoptions", ["animal_id"], name: "index_adoptions_on_animal_id", unique: true, using: :btree

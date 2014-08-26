@@ -1,45 +1,52 @@
-<div class="adoption-container">
-  <div class="row">
-    <div class="small-6 large-8 columns">
-      <div class="image-container">
-        <div class="adoption-headshot">
-          <div id="interaction-gif">
-            <%= image_tag @animal.image.profile.url %>
-          </div>
-        </div>
+<div class="large-3 columns">
+  <div class="adoption-sidebar">
+    <h1><%= @animal.name %></h1>
+    <h4>Level: <%= @adoption.level %></h4>
+    <h4>Points: <%= @adoption.score %></h4>
+    <h4><%= "Credits: #{current_user.credits}" %></h4>
+
+    <div class="button-container">
+      <%= form_tag [@adoption, :feedings] do %>
+        <%= submit_tag "Feed", class: "button" %>
+    <% end %>
+
+      <div class="button-sidebar-spacing">
+        <%= form_tag [@adoption, :plays] do %>
+          <%= submit_tag "Play", class: "button" %>
+      <% end %>
+      </div>
+
+      <div class="button-sidebar-spacing">
+        <%= form_tag [@adoption, :trainings] do %>
+          <%= submit_tag "Train", class: "button"  %>
+      <% end %>
+      </div>
+
+      <div class="button-sidebar-spacing">
+        <%= form_tag [@adoption, :sleeps] do %>
+          <%= submit_tag "Pet", class: "button"  %>
+      <% end %>
       </div>
     </div>
-    <div class="small-6 large-2 columns">
-      <div class="adoption-sidebar">
-        <h1><%= @animal.name %></h1>
-        <h4>Level: <%= @adoption.level %></h4>
-        <h4>Points: <%= @adoption.score %></h4>
-        <h4><%= "Credits: #{current_user.credits}" %></h4>
+  </div>
+</div>
 
-        <div class="button-container">
-          <%= form_tag [@adoption, :feedings] do %>
-            <%= submit_tag "Feed", class: "button" %>
-        <% end %>
+<div class="large-3 columns">
+  <div class="animal-profile-container">
+    <div class="wooden-frame-container">
+      <%= image_tag @animal.image.profile.url %>
+    </div>
+  </div>
+</div>
 
-          <div class="button-sidebar-spacing">
-            <%= form_tag [@adoption, :plays] do %>
-              <%= submit_tag "Play", class: "button" %>
-          <% end %>
-          </div>
-
-          <div class="button-sidebar-spacing">
-            <%= form_tag [@adoption, :trainings] do %>
-              <%= submit_tag "Train", class: "button"  %>
-          <% end %>
-          </div>
-
-          <div class="button-sidebar-spacing">
-            <%= form_tag [@adoption, :sleeps] do %>
-              <%= submit_tag "Pet", class: "button"  %>
-          <% end %>
-          </div>
-        </div>
-      </div>
+<div class="large-6 columns">
+  <div class="gif-container">
+    <div id="interaction-gif">
+      <% if @adoption.positive_interaction_status %>
+        <%= image_tag @animal.image.profile.url, id:"animal" %>
+      <% else %>
+        <h3>You are over your interaction limit for that option, please buy credits, select a new option or try again later.</h3>
+      <% end %>
     </div>
   </div>
 </div>

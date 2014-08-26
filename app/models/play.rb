@@ -2,6 +2,7 @@ class Play
   POINTS = 8
   MAX_PLAYS_PER_PERIOD = 5
   PLAY_TIME = 4
+  CREDITS = 2
 
   def initialize(adoption, user)
     @adoption = adoption
@@ -17,6 +18,10 @@ class Play
         play_counter: @adoption.play_counter.next,
         last_time_played_with: Time.now
       )
+    else
+      @adoption.update_attributes(
+        positive_interaction_status: false
+      )
     end
   end
 
@@ -27,6 +32,7 @@ class Play
   def reset_play_counter
     if @adoption.last_time_played_with.to_i < PLAY_TIME.hours.ago.to_i
       @adoption.update_attributes(
+        positive_interaction_status: true,
         play_counter: 0
       )
     end
