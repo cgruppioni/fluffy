@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140822183315) do
+ActiveRecord::Schema.define(version: 20140826193401) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,12 +24,12 @@ ActiveRecord::Schema.define(version: 20140822183315) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "feed_counter",           default: 0,                     null: false
-    t.datetime "last_time_fed",          default: '2014-08-22 18:29:46'
-    t.datetime "last_time_played_with",  default: '2014-08-22 18:29:46'
+    t.datetime "last_time_fed",          default: '2014-08-26 19:26:47'
+    t.datetime "last_time_played_with",  default: '2014-08-26 19:28:11'
     t.integer  "play_counter",           default: 0,                     null: false
-    t.datetime "last_time_trained_with", default: '2014-08-22 18:29:46'
+    t.datetime "last_time_trained_with", default: '2014-08-26 19:30:09'
     t.integer  "train_counter",          default: 0,                     null: false
-    t.datetime "last_time_slept",        default: '2014-08-22 18:29:46'
+    t.datetime "last_time_slept",        default: '2014-08-26 19:32:20'
     t.integer  "sleep_counter",          default: 0,                     null: false
     t.integer  "next_level",             default: 500,                   null: false
     t.boolean  "only_once",              default: true,                  null: false
