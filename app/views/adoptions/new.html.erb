@@ -1,6 +1,11 @@
-<div>
-  Caregiver: <%= current_user.email %><br>
-  Animal: <%= @animal.name %><br>
-  <%= render "error_messages", target: @adoption %>
-  <%= button_to "Finalize Adoption", [@animal, :adoptions] %>
+<div class="text-center">
+  <div class="adoption-form-container">
+    <h2>Caregiver: <%= current_user.email %></h2>
+    <h2>Animal: <%= @animal.name %></h2>
+    <%= image_tag @animal.image.profile.url %>
+    <%= render "error_messages", target: @adoption %>
+    <p>
+      <%= button_to "Finalize Adoption", [@animal, :adoptions], class: "button" %>
+    </p>
+  </div>
 </div>

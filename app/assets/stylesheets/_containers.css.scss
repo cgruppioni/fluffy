@@ -7,15 +7,15 @@
   text-align: center;
 }
 .image-container{
-  margin-top: 100px;
   text-align: center;
 }
 .name-container{
   text-align: center;
 }
 .button-container{
-  margin-top: 100px;
+  margin-top: 75px;
   text-align: center;
+  margin-left: 40px;
 }
 .adoption-headshot{
   border: #2e1a12 solid 100px;
@@ -25,7 +25,36 @@
   background: #3D1F00;
 }
 .shelter-container{
-  margin-left: 50px;
+  text-align: center;
+  margin-top: 250px;
+}
+.animal-index-container{
+  margin-left: 100px;
+}
+.form-container{
+  margin-top: 100px;
+  margin-left: 300px;
+  margin-right: 300px;
+}
+.user-form-container{
+  margin-top: 100px;
+  margin-left: 300px;
+  margin-right: 300px;
+}
+.session-form-container{
+  margin-left: 500px;
+  margin-right: 500px;
+  margin-top: 150px;
+}
+.adoption-form-container{
+  margin-top: 50px;
+}
+.payment-form-container{
+  margin-left: 500px;
+  margin-right: 500px;
+}
+.credits-container{
+  margin-top: 40px;
 }
 body{
   background: lightcyan !important;

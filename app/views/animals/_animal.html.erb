@@ -1,24 +1,36 @@
 <hr>
-<div>
-  Name: <%= animal.name %><br>
-  Type: <%= animal.mammal_type %><br>
-  Age: <%= animal.age %><br>
-  Breed: <%= animal.breed %><br>
-  Personality: <%= animal.personality %><br>
-  Biography: <%= animal.biography %><br>
-  Shelter Id: <%= animal.user_id %><br>
-  <%= image_tag animal.image.thumb.url %>
-</div>
+<div class="animal-index-container">
+  <div class="small-2 large-4 columns">
+    <div class="text-center">
+      <h1 class="animal-name"><%= animal.name %></h1>
 
-<div>
-  <% if current_user.shelter? && ! animal.adopted %>
-    <%= link_to "Edit Listing", [:edit, current_user, animal] %><br>
-    <%= button_to "Delete Listing", animal, method: :delete %>
-  <% end %>
+      <% if current_user.shelter? && ! animal.adopted %>
+        <%= form_tag [:edit, current_user, animal] do %>
+        <%= submit_tag "Edit Animal", class: "button" %>
+    <% end %>
+    <% end %>
+    </div>
+  </div>
+
+  <div class="small-4 large-4 columns">
+    <%= image_tag animal.image.thumb.url %>
+  </div>
+
+  <div class="small-6 large-4 columns">
+    <h5>
+      <b>Age:</b> <%= animal.age %><br>
+      <b>Breed:</b> <%= animal.breed %><br>
+      <b>Personality:</b> <%= animal.personality %><br>
+      <b>Biography:</b> <%= animal.biography %><br>
+      <b>Shelter Name:</b> <%= animal.user.name.capitalize %><br>
+
+      <% if current_user.shelter? && ! animal.adopted %>
+        <%= link_to "Delete Listing", animal, method: :delete %>
+    <% elsif current_user.shelter? && animal.adopted %>
+        <h4>Animal Adopted</h4>
+    <% else %>
+        <%= link_to "> Adopt #{animal.name}", [:new, animal, :adoption] %>
+    <% end %>
+    </h5>
+  </div>
 </div>
-<div>
-  <% if current_user.caregiver? %>
-    <%= link_to "Adopt #{animal.name}", [:new, animal, :adoption] %>
-  <% end %>
-</div>
-<hr>

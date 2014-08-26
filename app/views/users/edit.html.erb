@@ -1,38 +1,42 @@
-<%= form_for @user do |form| %>
-  <div>
+<div class="user-form-container">
+  <center><h1>Update User information</h1></center>
+  <%= form_for @user do |form| %>
+  <div class="large-6 columns">
     <%= form.label :name %>
     <%= form.text_field :name %>
   </div>
-  <div>
+  <div class="large-6 columns">
     <%= form.label :email %>
     <%= form.email_field :email %>
   </div>
-  <div>
+  <div class="large-6 columns">
     <%= form.label :role, "I am a.." %>
     <%= form.collection_select :role, User::ROLES, :to_s, :to_s %>
   </div>
-  <h3> Recommended Additional Information: </h3>
-  <div>
+  <div class="large-6 columns">
     <%= form.label :address %>
     <%= form.text_field :address %>
   </div>
-  <div>
+  <div class="large-6 columns">
     <%= form.label :primary_contact %>
     <%= form.text_field :primary_contact %>
   </div>
-  <div>
+  <div class="large-6 columns">
     <%= form.label :phone_numer %>
     <%= form.phone_field :phone_number %>
   </div>
-  <div>
+  <div class="large-6 columns">
     <%= form.label :facility_type %>
     <%= form.collection_select :facility_type, User::FACILITY_TYPE, :to_s, :to_s, include_blank: true %>
   </div>
-  <div>
+  <div class="large-6 columns">
     <%= form.label :description %>
     <%= form.text_area :description %>
   </div>
-  <div>
-    <%= form.submit "Update Profile" %>
+  <div class="large-12 columns">
+    <center>
+      <%= form.submit "Update Profile", class: "button" %>
+    </center>
   </div>
 <% end %>
+  </div>

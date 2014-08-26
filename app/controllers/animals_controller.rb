@@ -7,7 +7,7 @@ class AnimalsController < ApplicationController
     @animal = current_user.animals.new(animal_params)
 
     if @animal.save
-      redirect_to @animal
+      redirect_to :animals
     else
       render :new
     end

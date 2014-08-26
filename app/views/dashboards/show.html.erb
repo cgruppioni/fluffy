@@ -3,18 +3,17 @@
 <% elsif current_user.shelter? %>
 
   <div class="shelter-container">
-    <div class="medium-2 columns">
-      <%= link_to "Update Profile", [:edit, current_user] %>
-    </div>
-    <div class="medium-2 columns">
-      <%= link_to "Create animal listing", [:new, current_user, :animal] %>
-    </div>
-    <div class="medium-2 columns">
-      <%= link_to "View my animal listings", :animals %>
-    </div>
-    <div class="medium-2 columns">
-      <%= link_to "View adoptions", :adoptions %>
-    </div>
+      <%= form_tag edit_user_path(current_user), method: :get do %>
+      <%= submit_tag "Edit User", class: "button" %>
+      <% end %>
+      
+      <%= form_tag new_user_animal_path(current_user), method: :get do %>
+      <%= submit_tag "Create Animal Listing", class: "button" %>
+      <% end %>
+
+      <%= form_tag animals_path, method: :get do %>
+      <%= submit_tag "View my animal listings", class: "button" %>
+    <% end %>
   </div>
 <% else %>
   <h2>Hello <%= current_user.name.capitalize %>.</h2>

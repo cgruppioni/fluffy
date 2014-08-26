@@ -1,34 +1,39 @@
+<center><h1>Create a new animal listing</h1></center>
 <%= form_for [current_user, @animal] do |form| %>
   <%= render "error_messages", target: @animal %>
-  <div>
+  <div class="large-6 columns">
     <%= form.label :name %>
     <%= form.text_field :name %>
   </div>
-  <div>
+  <div class="large-6 columns">
     <%= form.label :mammal_type, "Type" %>
     <%= form.collection_select :mammal_type, Animal::MAMMAL_TYPE, :to_s, :to_s, include_blank: false %>
   </div>
-  <div>
+  <div class="large-6 columns">
     <%= form.label :age %>
     <%= form.number_field :age %>
   </div>
-  <div>
+  <div class="large-6 columns">
     <%= form.label :breed %>
     <%= form.text_field :breed %>
   </div>
-  <div>
+  <div class="large-6 columns">
     <%= form.label :personality %>
     <%= form.collection_select :personality, Animal::PERSONALITY, :to_s, :to_s, include_blank: false %>
   </div>
-  <div>
+  <div class="large-6 columns">
     <%= form.label :biography %>
     <%= form.text_area :biography %>
   </div>
-  <div>
-    <%= form.label "Upload Profile Picture", :image %>
+  <div class="large-6 columns">
+    <%= form.label :image, "Upload Image" %>
     <%= form.file_field :image %>
   </div>
-  <div>
-    <%= form.submit "Create Listing" %>
+  <div class="form-submit">
+    <div class="large-12 columns">
+      <center>
+        <%= form.submit "Create Listing", class: "button" %>
+      </center>
+    </div>
   </div>
 <% end %>

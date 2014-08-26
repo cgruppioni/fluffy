@@ -1,11 +1,16 @@
-<h4>Current Credits: <%= current_user.credits %></h4>
+<div class="credits-container">
+  <div class="text-center">
+    <h4>Current Credits: <%= current_user.credits %></h4>
+  </div>
+</div>
 
-<%= form_for @payment, html: {id: "new_payment"} do |form| %>
-  <div>
+<div class="payment-form-container">
+  <%= form_for @payment, html: {id: "new_payment"} do |form| %>
+    <div>
     <%= form.label :credits %>
     <%= form.number_field :credits, value: 0 %>
   </div>
-  
+
   <%= form.hidden_field :stripe_card_token, id: "stripe_card_token" %>
 
   <div>
@@ -22,7 +27,10 @@
     <%= select_year nil, {start_year: Date.today.year, end_year: Date.today.year+15}, {name: nil, id: "card_year"} %>
   </div>
   <div id="stripe_error">
-  <noscript>JavaScript is not enabled and is required for this form. First enable it in your web browser settings.</noscript>
+    <noscript>JavaScript is not enabled and is required for this form. First enable it in your web browser settings.</noscript>
   </div>
-  <%= form.submit "Purchase more credits" %>
+  <div class="text-center">
+    <%= form.submit "Purchase more credits", class: "button" %>
+  </div>
 <% end %>
+</div>

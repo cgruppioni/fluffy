@@ -1,13 +1,8 @@
 <div class="adoption-container">
   <div class="row">
-    <div class="small-6 large-2 columns">
-      <div class="name-container">
-        <h3><%= @animal.name %></h3>
-        <h4><%= "Credits #{current_user.credits}" %></h4>
-      </div>
-    </div>
     <div class="small-6 large-8 columns">
       <div class="image-container">
+        <h1><%= @animal.name %></h1>
         <div class="adoption-headshot">
           <div class="interaction-gif">
             <%= image_tag @animal.image.profile.url %>
@@ -15,36 +10,38 @@
         </div>
       </div>
     </div>
-    <div class="small-12 large-2 columns">
+    <div class="small-6 large-2 columns">
       <div class="adoption-sidebar">
         <h4>Level: <%= @adoption.level %></h4>
         <h4>Points: <%= @adoption.score %></h4>
-      </div>
-    </div>
-  </div>
-</div>
+        <h4><%= "Credits #{current_user.credits}" %></h4>
 
-<div class="row">
-  <div class="button-container">
-    <div class="medium-3 columns">
-      <%= form_tag [@adoption, :feedings] do %>
-        <%= submit_tag "Feed", class: "button" %>
-    <% end %>
-    </div>
-    <div class="medium-3 columns">
-      <%= form_tag [@adoption, :plays] do %>
-        <%= submit_tag "Play", class: "button" %>
-    <% end %>
-    </div>
-    <div class="medium-3 columns">
-      <%= form_tag [@adoption, :trainings] do %>
-        <%= submit_tag "Train", class: "button"  %>
-    <% end %>
-    </div>
-    <div class="medium-3 columns">
-      <%= form_tag [@adoption, :sleeps] do %>
-        <%= submit_tag "Sleep", class: "button"  %>
-    <% end %>
+        <div class="button-container">
+          <%= form_tag [@adoption, :feedings] do %>
+            <%= submit_tag "Feed", class: "button" %>
+        <% end %>
+
+          <div class="button-sidebar-spacing">
+            <%= form_tag [@adoption, :plays] do %>
+              <%= submit_tag "Play", class: "button" %>
+          <% end %>
+          </div>
+
+
+          <div class="button-sidebar-spacing">
+            <%= form_tag [@adoption, :trainings] do %>
+              <%= submit_tag "Train", class: "button"  %>
+          <% end %>
+          </div>
+
+
+          <div class="button-sidebar-spacing">
+            <%= form_tag [@adoption, :sleeps] do %>
+              <%= submit_tag "Sleep", class: "button"  %>
+          <% end %>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>
