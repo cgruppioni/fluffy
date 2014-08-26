@@ -51,7 +51,8 @@ class AnimalsController < ApplicationController
       :breed,
       :personality,
       :biography,
-      :image
+      :image,
+      :gender
     )
   end
 end

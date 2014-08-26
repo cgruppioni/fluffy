@@ -1,7 +1,8 @@
 class Animal < ActiveRecord::Base
   MAMMAL_TYPE = %w(Cat Dog)
   PERSONALITY = %w(Energetic Friendly Shy Playful Sweet Loyal Smart Nervous)
-  
+  GENDER = %w(Female Male)
+
   belongs_to :user
   belongs_to :adoption
 

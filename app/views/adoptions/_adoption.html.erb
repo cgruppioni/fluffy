@@ -2,9 +2,8 @@
   <div class="row">
     <div class="small-6 large-8 columns">
       <div class="image-container">
-        <h1><%= @animal.name %></h1>
         <div class="adoption-headshot">
-          <div class="interaction-gif">
+          <div id="interaction-gif">
             <%= image_tag @animal.image.profile.url %>
           </div>
         </div>
@@ -12,9 +11,10 @@
     </div>
     <div class="small-6 large-2 columns">
       <div class="adoption-sidebar">
+        <h1><%= @animal.name %></h1>
         <h4>Level: <%= @adoption.level %></h4>
         <h4>Points: <%= @adoption.score %></h4>
-        <h4><%= "Credits #{current_user.credits}" %></h4>
+        <h4><%= "Credits: #{current_user.credits}" %></h4>
 
         <div class="button-container">
           <%= form_tag [@adoption, :feedings] do %>
@@ -27,17 +27,15 @@
           <% end %>
           </div>
 
-
           <div class="button-sidebar-spacing">
             <%= form_tag [@adoption, :trainings] do %>
               <%= submit_tag "Train", class: "button"  %>
           <% end %>
           </div>
 
-
           <div class="button-sidebar-spacing">
             <%= form_tag [@adoption, :sleeps] do %>
-              <%= submit_tag "Sleep", class: "button"  %>
+              <%= submit_tag "Pet", class: "button"  %>
           <% end %>
           </div>
         </div>
