@@ -1,5 +1,5 @@
 class Feeder
-  MAX_FEEDINGS_PER_MEAL = 3
+  MAX_FEEDINGS_PER_PERIOD = 3
   POINTS = 15
   MEAL_TIME = 6
   CREDITS = 2
@@ -30,7 +30,7 @@ class Feeder
   end
 
   def hungry?
-    @adoption.feed_counter < MAX_FEEDINGS_PER_MEAL
+    @adoption.feed_counter < MAX_FEEDINGS_PER_PERIOD
   end
 
   def has_credits?

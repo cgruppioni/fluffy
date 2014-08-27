@@ -16,7 +16,8 @@ class Play
       @adoption.update_attributes(
         score: @adoption.score + POINTS,
         play_counter: @adoption.play_counter.next,
-        last_time_played_with: Time.now
+        last_time_played_with: Time.now,
+        positive_interaction_status: true
       )
     else
       @adoption.update_attributes(

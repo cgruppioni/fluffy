@@ -16,7 +16,8 @@ class Trainer
       @adoption.update_attributes(
         score: @adoption.score + POINTS,
         train_counter: @adoption.train_counter.next,
-        last_time_trained_with: Time.now
+        last_time_trained_with: Time.now,
+        positive_interaction_status: true
       )
     else
       @adoption.update_attributes(
@@ -30,7 +31,7 @@ class Trainer
   end
 
   def reset_train_counter
-    if @adoption.last_time_trained_with > TRAIN_TIME.hours.ago
+    if @adoption.last_time_trained_with < TRAIN_TIME.hours.ago
       @adoption.update_attributes(
       positive_interaction_status: true,
       train_counter: 0

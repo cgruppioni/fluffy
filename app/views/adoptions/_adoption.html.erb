@@ -44,9 +44,18 @@
     <div id="interaction-gif">
       <% if @adoption.positive_interaction_status %>
         <%= image_tag @animal.image.profile.url, id:"animal" %>
-      <% else %>
-        <h3>You are over your interaction limit for that option, please buy credits, select a new option or try again later.</h3>
+    <% else %>
+      <div class="response-container">
+        <h3>Select an open interaction<br>
+        or try again later:</h3>
+        <h4><%= "Feed Counter: #{@adoption.feed_counter}/#{Feeder::MAX_FEEDINGS_PER_PERIOD}*" %></h4>
+        <h4><%= "Play Counter: #{@adoption.play_counter}/#{Play::MAX_PLAYS_PER_PERIOD}" %></h4>
+        <h4><%= "Train Counter: #{@adoption.train_counter}/#{Trainer::MAX_TRAINS_PER_PERIOD}" %></h4>
+        <h4><%= "Pet Counter: #{@adoption.sleep_counter}/#{Sleeper::MAX_SLEEPS_PER_PERIOD}" %></h4>
+        <br>
+        *requires credits
+      </div>
       <% end %>
+      </div>
     </div>
   </div>
-</div>
