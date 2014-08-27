@@ -11,8 +11,10 @@
       <% end %>
 
       <%= form_tag animals_path, method: :get do %>
-      <%= submit_tag "View my animal listings", class: "button" %>
-    <% end %>
+        <%= submit_tag "View my animal listings", class: "button" %>
+      <% end %>
+
+      <a href="#" class="button">Upload Business Verification</a>
   </div>
 <% else %>
   <div class="dashboard-container">
