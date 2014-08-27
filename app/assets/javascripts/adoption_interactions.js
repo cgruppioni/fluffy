@@ -1,8 +1,5 @@
-catArray = []
-dogArray = []
-
 $(function() {
- reply_click() 
+  reply_click();
 });
 
 function reply_click() {
