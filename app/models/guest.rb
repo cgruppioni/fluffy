@@ -10,4 +10,8 @@ class Guest
   def caregiver?
     false
   end
+
+  def adoption
+    false
+  end
 end

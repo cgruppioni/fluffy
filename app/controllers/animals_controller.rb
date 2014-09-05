@@ -17,7 +17,7 @@ class AnimalsController < ApplicationController
     @animal = Animal.find(params[:id])
     respond_to do |format|
       format.html
-      format.json { render json: @animal.as_json(only: [:id, :name], ) }
+      format.json { render json: @animal.as_json(only: [:id, :name, :latitude, :longitude], ) }
     end
   end
 
@@ -56,7 +56,9 @@ class AnimalsController < ApplicationController
       :personality,
       :biography,
       :image,
-      :gender
+      :gender,
+      :latitude,
+      :longitude
     )
   end
 end
