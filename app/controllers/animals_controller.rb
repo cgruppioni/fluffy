@@ -15,6 +15,10 @@ class AnimalsController < ApplicationController
 
   def show
     @animal = Animal.find(params[:id])
+    respond_to do |format|
+      format.html
+      format.json { render json: @animal.as_json(only: [:id, :name], ) }
+    end
   end
 
   def edit
