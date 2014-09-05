@@ -6,6 +6,7 @@ class User < ActiveRecord::Base
   has_many :animals, dependent: :destroy
   has_one :adoption
   has_many :payments
+  has_one :dashboard
 
   validates :email, presence: true, uniqueness: true
   validates :password_digest, presence: true
