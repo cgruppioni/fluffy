@@ -1,2 +1,9 @@
-Check back Friday, August 29th for the most exciting, informative and
-page-turning README you've ever read.
+Fluffy: Capstone project for Metis/Thoughtbot Summer 2014
+
+Fluffy combines game mechanics with social good, by turning the standard "taking care of a cartoon animal app" (think: Talking TomCat or Tamagotchi) and connecting you with real local animal shelters.
+
+The gems I used in the product include:
+- Monban - User authentication
+- Geocoder - Searching by location
+- Carrierwave - Uploading images, and resizing them into different types (ex: avatar, profile picture, etc.)
+- Stripe - Caregivers can buy credits which they need for some interactions
