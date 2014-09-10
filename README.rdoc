@@ -1,14 +1,15 @@
-Fluffy: Capstone project for Metis/Thoughtbot Summer 2014
+<b>Fluffy: Capstone project for Metis/Thoughtbot Summer 2014</b>
 
 Fluffy combines game mechanics with social good, by turning the standard "taking care of a cartoon animal app" (think: Talking TomCat or Tamagotchi) and connecting you with real local animal shelters.
 
-How to use Fluffy:
+<b>How to use Fluffy:</b>
 1. Sign up as a Shelter or Caregiver
 2. As a Shelter your only responsibility is to add animal listings, which is pretty straightforward.
 3. As a Caregiver you can browse for animals near your address or zipcode, and then confirm the adoption. 
-4. Once you an adopt an animal you can earn points and move up levels by interacting with your animal. To be able to feed your animal you must by credits, playing, training and petting are free interactions.
+    Currently there are only animals under North Attleboro, MA or 02760
+4. Once you an adopt an animal you can earn points and move up levels by interacting with your animal. To be able to feed your animal you must buy credits, playing, training and petting are free interactions.
 
-The gems I used in the product include:
+<b>The gems I used in the project include:</b>
 - Monban - User authentication
 - Geocoder - Search by location
 - Carrierwave - Upload images and resizing them into different types (ex: avatar, profile picture, etc.)
