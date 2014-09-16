@@ -21,4 +21,4 @@ group :development do
   gem "bullet"
 end
 gem 'rails_12factor'
-gem 'aws'
+gem 'aws-sdk'

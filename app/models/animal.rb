@@ -12,6 +12,7 @@ class Animal < ActiveRecord::Base
   validates :breed, presence: true
   validates :personality, presence: true
   validates :biography, presence: true
+  
   mount_uploader :image, ImageUploader
 
   def self.chronological
