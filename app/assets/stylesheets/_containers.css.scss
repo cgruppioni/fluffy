@@ -80,6 +80,10 @@
   margin-top: 30px;
   margin-left: 300px;
   margin-right: 300px;
+  @media (max-width: 1020px) {
+    margin-left: 20px;
+    margin-right: 20px;
+  }
 }
 body{
   background: lightcyan !important;
