@@ -15,13 +15,15 @@
       <section class="top-bar-section">
         <ul class="right">
           <li class="has-dropdown">
+          <% if current_user.adoption %>
             <a href="#">Options</a>
               <ul class="dropdown">
                 <li><%= link_to "Abandon Pet", @adoption, method: :delete %></li>
-             </ul>
+              </ul>
           </li>
           <li class="active"><%= link_to "Purchase Credits", [:new, :payment] %></a></li>
-        </ul>
+        <% end %>
+      </ul>
 
         <ul class="left">
           <li><%= link_to "Fluffy", root_path %></li>
